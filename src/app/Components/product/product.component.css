@@ -4,3 +4,6 @@
 .gray{
     color:gray !important
 }
+.through{
+    text-decoration:line-through;
+}

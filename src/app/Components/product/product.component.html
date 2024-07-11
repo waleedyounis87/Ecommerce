@@ -17,8 +17,8 @@
             <i class="fa-solid fa-star rating-color p-1"></i>
             <span class="text-black">{{product.ratingsAverage}}</span>
             <p class="text-secondary font-sm">
-                <span *ngIf="product.priceAfterDiscount" class="text-decoration-line-through">{{product.priceAfterDiscount}} EGP</span>
-                {{product.price}} EGP
+                <span class="p-1" *ngIf="product.priceAfterDiscount">{{product.priceAfterDiscount}} EGP</span>
+                <span [class.through]="product.priceAfterDiscount">{{product.price}} EGP</span>
             </p>
         </div>
 
