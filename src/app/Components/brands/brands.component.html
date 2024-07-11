@@ -1,0 +1,14 @@
+<div class="spin-container" *ngIf="isLoading">
+    <span class="loader"></span>
+</div>
+<div class="container mt-5 p-5" *ngIf="!isLoading">
+    <p class="fw-medium fs-3 text-secondary mt-5">Choose One from Your Favorite Brand</p>
+    <div class="row g-2" >
+        <div class="col-3" *ngFor="let brand of allBrands">
+            <div class="form-border brand d-flex justify-content-center flex-column align-items-center">
+                <img [src]="brand.image" alt="">
+                <p class="z-2">{{brand.name}}</p>
+            </div>
+        </div>
+    </div>
+</div>

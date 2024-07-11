@@ -1,0 +1,14 @@
+<div class="spin-container" *ngIf="isLoading">
+    <span class="loader"></span>
+</div>
+<div class="container mt-5 pt-5" *ngIf="!isLoading">
+    <p class="fw-medium fs-3 text-secondary mt-5">Choose One from Your Favorite Categories</p>
+    <div class="row g-2" >
+        <div class="col-3" *ngFor="let cat of allCat">
+            <div class="form-border brand d-flex justify-content-center flex-column align-items-center" >
+                <img [src]="cat.image" alt="" class="w-100 object-fit-cover" height="400px">
+                <p class="z-2 fs-2 text-secondary">{{cat.name}}</p>
+            </div>
+        </div>
+    </div>
+</div>

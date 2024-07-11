@@ -1,0 +1,54 @@
+<div class="bg-account">
+    <div class="container">
+        <div class="pt-5">
+            <h2 class="header-color mt-5 ps-5">Wishlist</h2>
+        </div>
+        <div class="spin-container" *ngIf="isLoading">
+            <span class="loader"></span>
+        </div>
+        <div class="d-flex justify-content-center py-5" *ngIf="!isLoading">
+            <div class="w-50 bg-account p-4 rounded form-border">
+                <div class="text-center" *ngIf="statusApiUpdaed == 'success'">
+                    <hr class="text-danger">
+                    <p class="text-secondary"><i class="fa-solid fa-circle-check text-success"></i> Updated Successfully</p>
+                </div>
+                <div class="text-center" *ngIf="statusApiDeleted == 'success'">
+                    <hr class="text-danger">
+                    <p class="text-secondary"><i class="fa-solid fa-circle-check text-success"></i> <span class="text-main"></span> Deleted Successfully</p>
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <p *ngIf="apiErrorMessage"><i class="fa-solid fa-circle-exclamation text-danger p-2"></i><span class="fw-bold">Error: {{apiErrorMessage}}</span></p>
+                </div>
+                <div class="">
+                    <div class="row align-items-center" *ngFor="let product of allProductsCart">
+                        <div class="col-6">
+                            <div class="d-flex m-2">
+                                <img [src]="product.imageCover" alt="" class="object-fit-cover" height="200px">
+                                <div class=" p-3">
+                                    <p class="p-0 m-0 fw-medium">{{product.title}}</p>
+                                    <p class="p-0 m-0 text-secondary ">{{product.price}} EGP</p>
+                                    <div>
+                                        <button (click)="deleteWish(product._id)" class="btn-style border-2 rounded-0 p-2 m-2 text-main d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-trash text-main p-2"></i>
+                                            <span>Remove</span>
+                                            <!--<i *ngIf="" class="fa-solid fa-spinner fa-spin"></i>-->
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 ">
+                            <div class="d-flex justify-content-end">
+                                <button class="btn-style text-center border-2 rounded-0 p-1 m-0" (click)="addToCart(product._id)">
+                                    <span>Add to Cart</span>
+                                </button>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

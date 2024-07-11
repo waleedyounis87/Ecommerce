@@ -1,0 +1,28 @@
+<div class="text-center product">   
+        <div class="w-100 overflow-hidden position-relative">
+            <div class="position-absolute top-0 end-0 z-2">
+                <i *ngIf="ids.includes(product._id)" (click)="deleteWish(product._id)"   class=" z-1 fa-solid fa-heart text-secondary fs-4 p-3 cursor-pointer" [class.red]="true"  ></i>
+                <i  *ngIf="!ids.includes(product._id)" (click)="addTowishlist(product._id)"  class="fa-solid fa-heart text-secondary fs-4 p-3 cursor-pointer" [class.gray]="true" ></i>
+            </div>
+        <a [routerLink]="['/product',product._id]">
+            <img [src]="product.imageCover" [alt]="product.title" class="w-100">
+        </a>
+            <div class="position-absolute bottom-0 start-0 end-0 quick-view">
+                <a class="text-white cursor-pointer">Quick View</a>
+            </div>
+        </div>
+        <p class="text-secondary fs-6 p-1 m-0">{{product.category.name}}</p>
+        <p class="p-0 fw-medium text-black ">{{product.title.split(' ').slice(0,2).join('')}}</p>
+        <div class="p-2">
+            <i class="fa-solid fa-star rating-color p-1"></i>
+            <span class="text-black">{{product.ratingsAverage}}</span>
+            <p class="text-secondary font-sm">
+                <span *ngIf="product.priceAfterDiscount" class="text-decoration-line-through">{{product.priceAfterDiscount}} EGP</span>
+                {{product.price}} EGP
+            </p>
+        </div>
+
+       <button class="btn bg-main mb-3 text-white" (click)="addToCart(product._id)">Add to Cart</button>
+    </div>
+    
+    

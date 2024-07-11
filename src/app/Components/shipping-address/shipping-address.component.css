@@ -1,0 +1,10 @@
+
+input.ng-invalid{
+    border: 1px solid var(--main-color);
+}
+input.ng-valid{
+    border: 1px solid green;
+}
+input.ng-untouched{
+    border: 1px solid rgba(0, 0, 0, 0.043);
+}

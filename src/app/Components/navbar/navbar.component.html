@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary position-fixed start-0 end-0 top-0 z-3">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="./assets/images/site-logo-free-img-1.png" alt="" class="w-50">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="isLoggedUser">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="/home" routerLinkActive="text-main">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="products" routerLinkActive="text-main">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="wishlist" routerLinkActive="text-main">Wishlist</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="brands" routerLinkActive="text-main">Brands</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="categories" routerLinkActive="text-main">Categories</a>
+          </li>
+            
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item" *ngIf="isLoggedUser">
+            <a class="nav-link" routerLink="cart" routerLinkActive="text-main"><span *ngIf="totalPrice != 0">{{totalPrice}} EGP</span><i class="fs-4 position-relative fa-solid fa-basket-shopping p-1">
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger font-icon">
+                {{count}}
+                <span class="visually-hidden">unread messages</span>
+              </span>
+            </i></a>
+          </li>
+          <li class="nav-item dropdown position-relative">
+            <a class="nav-link dropdown-toggle p-3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Account
+            </a>
+            <ul class="position-absolute top-100 p-2 my-1 drop bg-white shadow z-3">
+              <li><a class="nav-link" routerLinkActive="text-main" routerLink="login" *ngIf="!isLoggedUser">Login</a></li>
+              <li><a class="nav-link" routerLinkActive="text-main" routerLink="register" *ngIf="!isLoggedUser">Register</a></li>
+              <li><a class="nav-link cursor-pointer" (click)="logout()"  *ngIf="isLoggedUser">Signout</a></li>
+              <li><a class="nav-link" routerLinkActive="text-main" routerLink="cart" *ngIf="isLoggedUser">Cart</a></li>
+            </ul>
+          </li>        
+        </ul>
+      </div>
+    </div>
+  </nav>

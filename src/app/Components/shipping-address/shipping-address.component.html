@@ -1,0 +1,37 @@
+
+<div class="bg-account">
+    <div class="container">
+        <div class="pt-5">
+            <h2 class="header-color mt-5">Shipping Address</h2>
+        </div>
+        <div class="d-flex justify-content-center py-5">
+            <div class="w-50 bg-account p-4 rounded form-border">
+                <div class="text-center" *ngIf="shippingAddressForm.invalid && shippingAddressForm.dirty || shippingAddressForm.untouched">
+                    <hr class="text-danger">
+                    <p *ngIf="shippingAddressForm.get('details')?.getError('required') ||
+                     shippingAddressForm.get('phone')?.getError('required') ||
+                     shippingAddressForm.get('city')?.getError('required')">
+                        <i class="fa-solid fa-circle-exclamation text-danger p-2"></i><span class="fw-bold">Error: </span>All Fields is required</p>
+                    <p *ngIf="shippingAddressForm.get('city')?.getError('email')"><i class="fa-solid fa-circle-exclamation text-danger p-2"></i><span class="fw-bold">Error: </span>Enter Valid Email</p>
+                    
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <p *ngIf="apiErrorMessage"><i class="fa-solid fa-circle-exclamation text-danger p-2"></i><span class="fw-bold">Error: </span>{{apiErrorMessage}}</p>
+                </div>
+                <h2 class="header-color my-2 text-center">CheckOut</h2>
+                <form class="w-100" (ngSubmit)="payNow()" [formGroup]="shippingAddressForm">
+                
+                    <input formControlName="details" name="details" type="email" class="form-control mt-4 py-2" placeholder="Details *" >
+                
+                    <input formControlName="phone" name="phone" type="phone" class="form-control mt-4 py-2" placeholder="Phone *" >
+                    <input formControlName="city" name="city" type="text" class="form-control mt-4 py-2" placeholder="City *" >
+                    
+                    <button [disabled]="shippingAddressForm.invalid && isLoading" class="btn-style text-center border-2 rounded-0 w-100 mt-4">
+                        <span *ngIf="!isLoading">Pay Now</span>
+                        <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></i>
+                    </button>
+                </form>
+            </div> 
+        </div>
+    </div>
+</div>

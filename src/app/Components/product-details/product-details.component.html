@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row g-0 align-items-center m-5">
+        <div class="col-4">
+            <div>
+                
+                <owl-carousel-o [options]="customOptions">
+
+                    <ng-container *ngFor="let slide of productDetails?.images">
+                      <ng-template carouselSlide >
+                        <img [src]="slide" [alt]="productDetails?.title" class="w-100">
+                      </ng-template>
+                    </ng-container>
+                
+                  </owl-carousel-o>
+                
+            </div>
+        </div>
+        <div class="col-8 p-3">
+            <p class="fw-bold fs-3">{{productDetails?.title}}</p>
+            <p class="text-secondary">
+                <span *ngIf="productDetails?.priceAfterDiscount" class="text-decoration-line-through">{{productDetails?.priceAfterDiscount}} EGP</span>
+                {{productDetails?.price}} EGP
+            </p>
+            <p>{{productDetails?.description}}</p>
+            <button class="btn-style px-5">Add to Cart</button>
+            <hr class="w-75">
+            <p>Category: <span class="text-main">{{productDetails?.category.name}}</span></p>
+            <ul class="p-0 text-secondary">
+                <p class="text-secondary fw-medium">Free shipping on orders over 50 EGP</p>
+                <li class="m-0"><i class="fa-solid fa-circle-check p-2"></i> No-Risk Money Back Guarantee!</li>
+                <li><i class="fa-solid fa-circle-check p-2"></i> No Hassle Refunds</li>
+                <li><i class="fa-solid fa-circle-check p-2"></i> Secure Payments</li>
+            </ul>
+        </div>
+    </div>
+</div>
