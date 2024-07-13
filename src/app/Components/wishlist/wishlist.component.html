@@ -20,14 +20,14 @@
                     <p *ngIf="apiErrorMessage"><i class="fa-solid fa-circle-exclamation text-danger p-2"></i><span class="fw-bold">Error: {{apiErrorMessage}}</span></p>
                 </div>
                 <div class="">
-                    <div class="row align-items-center" *ngFor="let product of allProductsCart">
-                        <div class="col-6">
-                            <div class="d-flex m-2">
+                    <div class="row align-items-center justify-content-center" *ngFor="let product of allProductsCart">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="d-flex flex-column flex-lg-row m-2">
                                 <img [src]="product.imageCover" alt="" class="object-fit-cover" height="200px">
                                 <div class=" p-3">
-                                    <p class="p-0 m-0 fw-medium">{{product.title}}</p>
-                                    <p class="p-0 m-0 text-secondary ">{{product.price}} EGP</p>
-                                    <div>
+                                    <p class="p-0 m-0 fw-medium text-center text-md-start">{{product.title}}</p>
+                                    <p class="p-0 m-0 text-secondary text-center text-md-start">{{product.price}} EGP</p>
+                                    <div class="d-flex w-100">
                                         <button (click)="deleteWish(product._id)" class="btn-style border-2 rounded-0 p-2 m-2 text-main d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-trash text-main p-2"></i>
                                             <span>Remove</span>
@@ -37,9 +37,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 ">
-                            <div class="d-flex justify-content-end">
-                                <button class="btn-style text-center border-2 rounded-0 p-1 m-0" (click)="addToCart(product._id)">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="d-flex justify-content-center justify-content-md-end">
+                                <button class="btn-style text-center border-2 rounded-0 p-1 my-1" (click)="addToCart(product._id)">
                                     <span>Add to Cart</span>
                                 </button>
                             </div>

@@ -1,5 +1,8 @@
 <div class="container">
-    <div class="row g-0 align-items-center m-5 pt-5">
+    <div class="spin-container" *ngIf="isLoading">
+        <span class="loader"></span>
+    </div>
+    <div class="row g-0 align-items-center m-5 pt-5" *ngIf="!isLoading">
         <div class="col-4">
             <div>
                 

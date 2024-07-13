@@ -12,7 +12,7 @@ import { ProductsService } from 'src/app/Services/products.service';
 export class ProductDetailsComponent implements OnInit {
   customOptions: OwlOptions = {
     loop: true,
-    mouseDrag: false,
+    mouseDrag: true,
     touchDrag: false,
     pullDrag: false,
     dots: true,
@@ -39,8 +39,10 @@ export class ProductDetailsComponent implements OnInit {
   }
   productId?: string | null;
   productDetails?: IProduct
+  isLoading: boolean = false;
   constructor(public _ProductService: ProductsService,private _ActivatedRoute:ActivatedRoute){}
   ngOnInit(): void {
+    this.isLoading = true
     this._ActivatedRoute.paramMap.subscribe({
       next: (params) => {
         this.productId = params.get('id');
@@ -48,9 +50,11 @@ export class ProductDetailsComponent implements OnInit {
         this._ProductService.getProductByID(this.productId!).subscribe({
           next: (product) => {
             this.productDetails = product.data
+            this.isLoading = false
           },
           error: (error) => {
             console.error('Error retrieving product details:', error);
+            this.isLoading = false
           }
         })
       },

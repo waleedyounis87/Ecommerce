@@ -15,7 +15,7 @@
                      "><i class="fa-solid fa-circle-exclamation text-danger p-2"></i><span class="fw-bold">Error: </span>All Fields is required</p>
                     <p *ngIf="registerForm.get('name')?.getError('minlength')"><i class="fa-solid fa-circle-exclamation text-danger p-2"></i><span class="fw-bold">Error: </span>Name Min Length is 3</p>
                     <p *ngIf="registerForm.get('email')?.getError('email')"><i class="fa-solid fa-circle-exclamation text-danger p-2"></i><span class="fw-bold">Error: </span>Enter Valid Email</p>
-                    <p *ngIf="registerForm.get('password')?.getError('pattern')"><i class="fa-solid fa-circle-exclamation text-danger p-2"></i><span class="fw-bold">Error: </span>password should contains Captial letter A-Z and 5 numbers at least</p>
+                    <p *ngIf="registerForm.get('password')?.getError('pattern')"><i class="fa-solid fa-circle-exclamation text-danger p-2"></i><span class="fw-bold">Error: </span>password should contains Captial  A-Z and 5 Length at least</p>
                     <p *ngIf="registerForm.getError('passwordMissMatch') && registerForm.get('rePassword')?.dirty"><i class="fa-solid fa-circle-exclamation text-danger p-2"></i><span class="fw-bold">Error: </span>Passwords didn’t match</p>
                     <p *ngIf="registerForm.get('phone')?.getError('pattern')"><i class="fa-solid fa-circle-exclamation text-danger p-2"></i><span class="fw-bold">Error: </span>Phone Number is not Valid</p>
                     <p *ngIf="apiErrorMessage"><i class="fa-solid fa-circle-exclamation text-danger p-2"></i><span class="fw-bold">Error: </span>{{apiErrorMessage}}</p>
